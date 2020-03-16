@@ -11,14 +11,14 @@
   "homepage": "https://codesandbox.io/s/zrr0n5m2zp",
   "main": "index.js",
   "dependencies": {
-    "firebase": "7.2.0",
+    "firebase": "7.11.0",
     "prop-types": "15.7.2",
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
-    "react-redux": "7.1.1",
-    "react-redux-firebase": "3.0.1",
-    "recompose": "latest",
-    "redux": "4.0.1"
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-redux": "7.2.0",
+    "react-redux-firebase": "3.1.2",
+    "recompose": "0.30.0",
+    "redux": "4.0.5"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"
