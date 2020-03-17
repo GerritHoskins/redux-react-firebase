@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useFirebase } from "react-redux-firebase";
 
-function NewTodo() {
+function AddTodo() {
   const [inputVal, changeInput] = useState("");
   const firebase = useFirebase();
 
@@ -12,6 +12,7 @@ function NewTodo() {
     return changeInput(e && e.target && e.target.value);
   }
   function addTodo() {
+    //    connect(AddTodo).dispatch(addTodo(input.value));
     return firebase.push("todos", { text: inputVal || "sample", done: false });
   }
 
@@ -25,4 +26,4 @@ function NewTodo() {
   );
 }
 
-export default NewTodo;
+export default AddTodo;

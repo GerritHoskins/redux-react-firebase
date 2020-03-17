@@ -1,32 +1,33 @@
 {
-  "name": "react-redux-firebase",
-  "version": "0.0.0",
-  "description": "Basic todo example using react-redux-firebase, along with react, redux, and react-redux.",
-  "keywords": [
-    "redux",
-    "react",
-    "react-redux-firebase",
-    "firebase"
-  ],
-  "homepage": "https://codesandbox.io/s/zrr0n5m2zp",
-  "main": "index.js",
+  "name": "todos",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "^3.0.0"
+  },
   "dependencies": {
+    "@firebase/database": "0.5.23",
     "firebase": "7.11.0",
     "prop-types": "15.7.2",
     "react": "16.13.0",
     "react-dom": "16.13.0",
     "react-redux": "7.2.0",
     "react-redux-firebase": "3.1.2",
-    "recompose": "0.30.0",
     "redux": "4.0.5"
-  },
-  "devDependencies": {
-    "react-scripts": "1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "test": "react-scripts test --env=node"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+},
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
