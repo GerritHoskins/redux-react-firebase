@@ -4,9 +4,14 @@ import createStore from "./stores/createStore";
 import { Provider } from "react-redux";
 import firebase from "firebase/app";
 import "firebase/database";
+import Todos from "./reducers/todos";
+import Footer from "./components/Footer";
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
-import App from "./components/App.js";
+import * as serviceWorker from './createServiceWorker';
+
+
+
 
  const fbConfig = {
   apiKey: "AIzaSyBJj_sA3OqXQGrm2UmSUvbTKKp34b42u6Y",
@@ -37,14 +42,20 @@ const styles = {
   textAlign: "center"
 };
 
-
 render(
-      <Provider store={store}>
+    <Provider store={store}>
         <ReactReduxFirebaseProvider {...rrfProps}>
           <div style={styles}>
-            <App />
+          <Todos />
+            <Footer />
           </div>
         </ReactReduxFirebaseProvider>
       </Provider>,
-      document.getElementById("root")
-      );
+    document.getElementById('root'),
+  );
+  
+  // If you want your app to work offline and load faster, you can change
+  // unregister() to register() below. Note this comes with some pitfalls.
+  // Learn more about service workers: http://bit.ly/CRA-PWA
+ serviceWorker.unregister();
+
