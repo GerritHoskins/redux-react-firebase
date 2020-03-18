@@ -6,7 +6,7 @@ import firebase from "firebase/app";
 import "firebase/database";
 import Todos from "./reducers/todos";
 import Footer from "./components/Footer";
-import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+import { ReactReduxFirebaseProvider, isLoaded } from "react-redux-firebase";
 import * as serviceWorker from './createServiceWorker';
 
 const fbConfig = {
@@ -40,8 +40,8 @@ export const App = () => {
           dispatch: store.dispatch
       }; 
     } 
-    if(!store || !rrfProps) { 
-      return <div>Oops or loading</div>
+    if( !isLoaded(store) || !isLoaded(rrfProps) ) { 
+      return <div>Loading...</div>
     }
     else {
       return (        
