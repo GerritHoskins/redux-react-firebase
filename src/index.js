@@ -1,5 +1,8 @@
 import React from 'react';
 import { render } from "react-dom";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import createStore from "./stores/createStore";
 import { Provider } from "react-redux";
 import firebase from "firebase/app";
@@ -47,12 +50,15 @@ export const App = () => {
       return (        
           <Provider store={store}>
             <ReactReduxFirebaseProvider {...rrfProps}>
-              <div>
+            <CssBaseline />
+            <Container maxWidth="md">              
+             <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
                 <Todos />
-                <Footer />
-              </div>
+                <Footer />            
+                </Typography>
+                </Container>
             </ReactReduxFirebaseProvider>
-          </Provider>      
+          </Provider>              
       )}
   }
             

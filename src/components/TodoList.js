@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Todo from './Todo';
+import { List } from "@material-ui/core";
 
 const TodoList = ({ todos, toggleTodo }) => (
-  <ul>
+  <List>
     {todos.map(todo =>
       <Todo
         key={todo.id}
@@ -11,7 +12,7 @@ const TodoList = ({ todos, toggleTodo }) => (
         onClick={() => toggleTodo(todo.id)}
       />
     )}
-  </ul>
+  </List>
 )
 
 TodoList.propTypes = {

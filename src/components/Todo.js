@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
 
-const styles = {
+import { List, ListItem, Button, Checkbox } from "@material-ui/core";
+
+/* const styles = {
   container: {
     display: "flex",
     alignItems: "center",
@@ -17,7 +19,7 @@ const styles = {
     display: "flex",
     flexDirection: "column"
   }
-};
+}; */
 
 function Todo({ id }) {
   const todo = useSelector(state => state.firebase.data.todos[id]);
@@ -31,18 +33,18 @@ function Todo({ id }) {
   }
 
   return (
-    <li className="Todo" style={styles.container}>
-      <input
+    <ListItem className="Todo">
+      <Checkbox
         className="Todo-Input"
         type="checkbox"
         checked={todo.done}
         onChange={toggleDone}
       />
       {todo.text || todo.name}
-      <button className="Todo-Button" onClick={deleteTodo}>
+      <Button className="Todo-Button" onClick={deleteTodo}>
         Delete
-      </button>
-    </li>
+      </Button>
+    </ListItem>
   );
 }
 

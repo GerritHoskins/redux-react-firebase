@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useFirebase, isLoaded } from "react-redux-firebase";
+import { Input, Button, DialogTitle } from "@material-ui/core/";
 
 function AddTodo() {
   const [inputVal, changeInput] = useState("");
@@ -22,10 +23,10 @@ function AddTodo() {
 
   return (
     <div>
-      <span>New Todo</span>
-      <input value={inputVal} onChange={onInputChange} />
-      <button onClick={addTodo}>Add</button>
-      <button onClick={resetInput}>Cancel</button>
+      <DialogTitle>New Todo</DialogTitle>
+      <Input value={inputVal} onChange={onInputChange} />
+      <Button onClick={addTodo}>Add</Button>
+      <Button onClick={resetInput}>Cancel</Button>
     </div>
   );
 }

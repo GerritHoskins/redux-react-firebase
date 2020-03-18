@@ -3,10 +3,11 @@ import FilterLink from '../containers/FilterLink';
 import { VisibilityFilters } from '../actions';
 
 import AddTodo from './../containers/AddTodo';
+import { DialogTitle } from '@material-ui/core';
 
 const Footer = () => (
   <div>
-    <span>Show: </span>
+    <DialogTitle>Show: </DialogTitle>
     <FilterLink filter={VisibilityFilters.SHOW_ALL}>
       All
     </FilterLink>

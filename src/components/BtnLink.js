@@ -1,8 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Link = ({ active, children, onClick }) => (
-    <button
+import { Link, Button } from "@material-ui/core";
+
+const BtnLink = ({ active, children, onClick }) => (
+    <Button
        onClick={onClick}
        disabled={active}
        style={{
@@ -10,7 +12,7 @@ const Link = ({ active, children, onClick }) => (
        }}
     >
       {children}
-    </button>
+    </Button>
 )
 
 Link.propTypes = {
@@ -19,4 +21,4 @@ Link.propTypes = {
   onClick: PropTypes.func.isRequired
 }
 
-export default Link
+export default BtnLink
