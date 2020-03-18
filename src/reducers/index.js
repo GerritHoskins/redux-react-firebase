@@ -11,6 +11,7 @@ export default combineReducers({
 
 import visibilityFilter from "./visibilityFilter";
 import { combineReducers } from "redux";
+import todos from "./todos";
 import { reducer as firebase } from "react-redux-firebase";
 
 const rootReducer = combineReducers({

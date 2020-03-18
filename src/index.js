@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from "react-dom";
 import createStore from "./stores/createStore";
 import { Provider } from "react-redux";
@@ -19,48 +19,46 @@ const fbConfig = {
   appId: "1:299370403853:web:2f2a63607f773821259d44"
 };
 
-class App extends Component {
+export const App = () => {
 
-  state = {
-    isInit: false
-  }
+    let store = null;
+    let rrfProps = null;
+    let isInit= false;
 
-  onComponentDidMount() {
     try {
       firebase.initializeApp(fbConfig);
-      this.setState({ isInit : true });
+      isInit = true;
     } catch (err) {
       console.warn("no fb init.");
     }
-  }
 
-  render(){
-
-    const store = null;
-    const rrfProps = null;
-
-    if(this.state.isInit) {
+    if(isInit) {
       store = createStore();
-      rfProps = {
+      rrfProps = {
           firebase,
           config: { userProfile: "users" },
           dispatch: store.dispatch
       }; 
     } 
+    if(!store || !rrfProps) { 
+      return <div>Oops or loading</div>
+    }
+    else {
+      return (        
+          <Provider store={store}>
+            <ReactReduxFirebaseProvider {...rrfProps}>
+              <div>
+                <Todos />
+                <Footer />
+              </div>
+            </ReactReduxFirebaseProvider>
+          </Provider>      
+      )}
+  }
+            
+  render(
+      <App />,
+      document.getElementById('root')
+  ) 
 
-    return (
-      store && rrfProps &&
-        <Provider store={store}>
-                <ReactReduxFirebaseProvider {...rrfProps}>
-                  <div style={styles}>
-                    <Todos />
-                    <Footer />
-                  </div>npm asudit fix 
-                </ReactReduxFirebaseProvider>
-              </Provider>,
-            document.getElementById('root')              
-    )
-      };
-}
-
-export default App;
+serviceWorker.register();

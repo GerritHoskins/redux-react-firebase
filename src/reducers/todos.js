@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useFirebaseConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import TodoItem from "../components/Todo";
+import AddTodo from "../containers/AddTodo";
 
 const todosQuery = {
   path: "todos",
@@ -22,7 +23,7 @@ function Todos() {
 
   // Show a message if there are no todos
   if (isEmpty(todos)) {
-    return "Todo list is empty";
+    return  <AddTodo />
   }
 
   return todos
