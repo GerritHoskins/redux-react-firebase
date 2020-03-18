@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useFirebase } from "react-redux-firebase";
+import { useFirebase, isLoaded } from "react-redux-firebase";
 
 function AddTodo() {
   const [inputVal, changeInput] = useState("");
@@ -12,8 +12,12 @@ function AddTodo() {
     return changeInput(e && e.target && e.target.value);
   }
   function addTodo() {
-    //    connect(AddTodo).dispatch(addTodo(input.value));
-    return firebase.push("todos", { text: inputVal || "sample", done: false }, resetInput());
+    let addTodoIsComplete = firebase.push("todos", { text: inputVal || "sample", done: false }, resetInput());
+    if (!isLoaded(addTodoIsComplete)) {
+      return "Loading";
+    }else {
+      return addTodoIsComplete;
+    }     
   }
 
   return (
