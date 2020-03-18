@@ -13,12 +13,12 @@ function AddTodo() {
   }
   function addTodo() {
     //    connect(AddTodo).dispatch(addTodo(input.value));
-    return firebase.push("todos", { text: inputVal || "sample", done: false });
+    return firebase.push("todos", { text: inputVal || "sample", done: false }, resetInput());
   }
 
   return (
     <div>
-      <h4>New Todo</h4>
+      <span>New Todo</span>
       <input value={inputVal} onChange={onInputChange} />
       <button onClick={addTodo}>Add</button>
       <button onClick={resetInput}>Cancel</button>
